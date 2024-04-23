@@ -1,0 +1,14 @@
+FROM node:latest
+
+WORKDIR /app
+
+COPY ../Server .
+
+# Install dependencies
+RUN npm install
+
+# Expose port 3001
+EXPOSE 3001
+
+# Command to run the nodejs app
+CMD ["npm", "run", "devStart"]
