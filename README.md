@@ -72,7 +72,7 @@ The `.dockerignore` file specifies files and directories that should be ignored 
 
 ## docker-compose.yml
 
-The `docker-compose.yml` file is used to define and configure multi-container Docker applications. It contains the following services:
+The `docker-compose.yml` file is used to define and configure multi-container Docker applications. Make sure to create it in the root directory of your project. It contains the following services:
 
 - `frontend`
   - `image: rahilg24/21bcp239-frontend`
@@ -102,3 +102,13 @@ The `docker-compose.yml` file is used to define and configure multi-container Do
     - `MONGO_INITDB_ROOT_PASSWORD=mongo_pass`: Sets the root password for the MongoDB instance.
 
 By using Docker Compose, you can easily start and manage all the containers required for your application with a single command.
+
+To start this multi-container set your present working directory as the same as that of the docker-compose file and run the following command
+    
+            docker compose up
+
+Check the running containers using ```docker container ls``` and you will see that docker has created 3 containers with the names mentioned in the docker compose file. To stop these containers simply run 
+            
+            docker compose down
+and you will see that docker stops and also deletes all 3 containers.
+    
