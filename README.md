@@ -2,6 +2,7 @@
 
 This repository contains the Dockerfiles, .dockerignore file, and docker-compose.yml file for a full-stack application with a React frontend and a Node.js backend connected to a MongoDB database.
 
+
 ## Backend Dockerfile
 
 The Backend Dockerfile contains the following instructions:
@@ -24,6 +25,11 @@ The Backend Dockerfile contains the following instructions:
 - `CMD ["npm", "run", "devStart"]`
   - Specifies the command to be executed when the container starts. In this case, it runs the `devStart` script defined in the `package.json` file, which likely starts the backend application in development mode.
 
+
+To create the docker image, simply open up your terminal and change your present working directory to the root directory of your backend. Make sure the docker file is in the same directory and run the command
+    
+            docker build -t image_name .
+
 ## Frontend Dockerfile
 
 The Frontend Dockerfile contains the following instructions:
@@ -45,6 +51,11 @@ The Frontend Dockerfile contains the following instructions:
 
 - `CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]`
   - Specifies the command to be executed when the container starts. In this case, it runs the `dev` script defined in the `package.json` file, which likely starts the frontend application in development mode. The `--host 0.0.0.0` option allows the frontend to be accessible from outside the container.
+ 
+
+To create the docker image, simply open up your terminal and change your present working directory to the root directory of your frontend. Make sure the docker file is in the same directory and run the command
+    
+            docker build -t image_name .
 
 ## .dockerignore
 
@@ -65,13 +76,13 @@ The `docker-compose.yml` file is used to define and configure multi-container Do
 
 - `frontend`
   - `image: rahilg24/21bcp239-frontend`
-    - Specifies the Docker image to be used for the frontend container.
+    - Specifies the Docker image to be used for the frontend container. Change it to whatever name you have given
   - `ports`
     - Maps the host port (`3000`) to the container port (`3000`), allowing access to the frontend application from outside the container.
 
 - `backend`
   - `image: rahilg24/21bcp239-backend`
-    - Specifies the Docker image to be used for the backend container.
+    - Specifies the Docker image to be used for the backend container. Change it to whatever name you have given
   - `ports`
     - Maps the host port (`3001`) to the container port (`3001`), allowing access to the backend application from outside the container.
   - `depends_on`
